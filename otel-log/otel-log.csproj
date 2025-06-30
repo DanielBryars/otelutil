@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-otel_log-16d20952-4605-431d-9dde-47e21edb4883</UserSecretsId>
+    <RootNamespace>otel_log</RootNamespace>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Protobuf Include="opentelemetry\proto\common\v1\common.proto" GrpcServices="None" />
+    <Protobuf Include="opentelemetry\proto\resource\v1\resource.proto" GrpcServices="None" />
+    <Protobuf Include="opentelemetry\proto\logs\v1\logs.proto" GrpcServices="None" />
+    <Protobuf Include="opentelemetry\proto\collector\logs\v1\logs_service.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.31.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
+  </ItemGroup>
+</Project>
